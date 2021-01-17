@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/dynamicportfolio",
+mongoose.connect("mongodb+srv://ankit4180:Ankit7602@cluster0.rxg5r.mongodb.net/ankit4180?retryWrites=true&w=majority",
 {
     useUnifiedTopology: true,
     useNewUrlParser: true,

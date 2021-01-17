@@ -39,7 +39,43 @@ app.get("/" , (req, res)=>{
 } ) 
 
 app.post("/contact", async(req , res)=>{
+    const name = req.body.name;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const message= req.body.message;
+
+    var transport = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false,
+        requireTLS: true,
+        auth: {
+          user: "sharmaankit7602@gmail.com",
+          pass: "Ankit@7602",
+        },
+      });
+      var mailOptions = {
+        from: req.body.email ,
+        to: "sharmaankit7602@gmail.com",
+        subject:`Mail from ${name}`,
+        html: `
+           <h2>Information</h2>   
+          <h3>Name: ${name}</h3>
+          <h3>Phone no: ${phone}</h3>
+          <h3>Email: ${email}</h3>
+          <p>${message}</p>
     
+        `,
+      };
+      transport.sendMail(mailOptions, function (err, info) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("sent", info.response);
+        }
+      });
+
+
     try {
         const userData = new User(req.body);
         await userData.save();
@@ -47,6 +83,8 @@ app.post("/contact", async(req , res)=>{
     } catch (error) {
         res.status(500).send(error)
     }
+
+   
 })
 
 
