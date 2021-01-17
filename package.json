@@ -1,0 +1,24 @@
+{
+  "name": "dynamic-portfolio",
+  "version": "1.0.0",
+  "description": "Creating portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js -e js,hbs"
+  },
+  "author": "Creative beasts",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "jquery": "^3.5.1",
+    "mongoose": "^5.11.7",
+    "nodemailer": "^6.4.17",
+    "require.js": "^1.0.0",
+    "typed.js": "^2.0.11",
+    "validator": "^13.5.2"
+  }
+}
